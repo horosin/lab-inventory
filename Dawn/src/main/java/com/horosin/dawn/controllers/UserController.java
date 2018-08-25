@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/users")
+    @PostMapping("/users/add")
     @ResponseStatus(HttpStatus.CREATED)
     public User createNewUser(@RequestBody User user) {
 
