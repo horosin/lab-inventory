@@ -20,6 +20,7 @@ import javax.sql.DataSource;
 
 // this is how users work:
 // https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d
+// INSERT INTO `role` VALUES (1,'ADMIN');
 
 @Configuration
 @EnableWebSecurity
@@ -54,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.csrf().disable().authorizeRequests()
                 .antMatchers("/hello").permitAll()
                 .anyRequest().authenticated()
                 .and()
