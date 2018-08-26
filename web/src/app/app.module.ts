@@ -10,8 +10,10 @@ import { AppRoutingModule } from "./core/app.routing.module";
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SamplesPageComponent } from './pages/samples-page/samples-page.component';
 import { SampleListComponent } from './components/sample-list/sample-list.component';
-import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatSortModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
     LoginPageComponent,
     SamplesPageComponent,
     SampleListComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    DashboardPageComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,13 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
     AppRoutingModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

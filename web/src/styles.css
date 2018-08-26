@@ -24,6 +24,11 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     width: 100%;
 }
 
+mat-toolbar a {
+    color: white;
+    text-decoration: none;
+}
+
 /* Login page */
 
 .login-card {
