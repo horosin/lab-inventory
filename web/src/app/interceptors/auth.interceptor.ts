@@ -30,6 +30,8 @@ export class AuthInterceptor implements HttpInterceptor {
             });
         }
 
+        // error handling
+        // https://medium.com/@ryanchenkie_40935/angular-authentication-using-the-http-client-and-http-interceptors-2f9d1540eb8
         return next.handle(request).pipe(tap((event: HttpEvent<any>) => {
             if (event instanceof HttpResponse) {
                 // some logging
