@@ -1,9 +1,13 @@
-<mat-card class="login-card">
+<mat-card class="register-card">
   <mat-card-header>
-    <mat-card-title><h2>Login</h2></mat-card-title>
+    <mat-card-title><h2>Register</h2></mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form>
+      <mat-form-field class="input-full-width">
+        <input matInput placeholder="full name">
+      </mat-form-field>
+
       <mat-form-field class="input-full-width">
         <input matInput placeholder="email">
       </mat-form-field>
@@ -11,11 +15,14 @@
       <mat-form-field class="input-full-width">
         <input matInput placeholder="password" type="password">
       </mat-form-field>
+
+      <mat-form-field class="input-full-width">
+        <input matInput placeholder="confirm password" type="password">
+      </mat-form-field>
     
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>Login</button>
     <a mat-button routerLink="/register">Register</a>
   </mat-card-actions>
 </mat-card>
