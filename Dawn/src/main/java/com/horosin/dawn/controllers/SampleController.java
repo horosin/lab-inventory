@@ -18,7 +18,7 @@ public class SampleController {
 
     @GetMapping("/hello")
     public String getHelloMessage(){
-        return "Welcome to Lab API";
+        return "{\"success\":1}";
     }
 
     @PostMapping("/samples")

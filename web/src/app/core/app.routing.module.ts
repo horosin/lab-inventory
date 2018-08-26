@@ -5,13 +5,13 @@ import { LoginPageComponent } from '../pages/login-page/login-page.component';
 import { SamplesPageComponent } from '../pages/samples-page/samples-page.component';
 import { RegisterPageComponent } from '../pages/register-page/register-page.component';
 import { DashboardPageComponent } from '../pages/dashboard-page/dashboard-page.component'
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
     { path: 'login', component: LoginPageComponent },
     { path: 'register', component: RegisterPageComponent },
-    { path: 'samples', component: SamplesPageComponent },
-    { path: 'dashboard', component: DashboardPageComponent },
-    { path: '', component: LoginPageComponent }
+    { path: 'samples', component: SamplesPageComponent, canActivate: [AuthGuard] },
+    { path: '', component: DashboardPageComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

@@ -1,12 +1,13 @@
 <mat-toolbar class="menu" color="primary">
   <mat-toolbar-row>
-    <a routerLink="/dashboard">Lab inventory</a>
+    <a routerLink="/">Lab inventory</a>
     <span class="example-fill-remaining-space"></span>
     <span class="align-center"></span>
     <span class="spacer"></span>
 
-    <a mat-button routerLink="/dashboard">Dashboard</a>
+    <a mat-button routerLink="/">Dashboard</a>
     <a mat-button routerLink="/samples">Samples</a>
+    <a *ngIf="isLoggedIn()"mat-button (click)="logout()">Logout</a>
   </mat-toolbar-row>
 </mat-toolbar>
 
