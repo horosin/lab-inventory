@@ -3,26 +3,26 @@
     <mat-card-title><h2>Register</h2></mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="register-form">
       <mat-form-field class="input-full-width">
-        <input matInput placeholder="full name">
+        <input matInput placeholder="full name" formControlName="name">
       </mat-form-field>
 
       <mat-form-field class="input-full-width">
-        <input matInput placeholder="email">
+        <input matInput placeholder="email" formControlName="email">
       </mat-form-field>
 
       <mat-form-field class="input-full-width">
-        <input matInput placeholder="password" type="password">
+        <input matInput placeholder="password" type="password" formControlName="password">
       </mat-form-field>
 
-      <mat-form-field class="input-full-width">
+      <mat-form-field *ngIf="false" class="input-full-width">
         <input matInput placeholder="confirm password" type="password">
       </mat-form-field>
     
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <a mat-button routerLink="/register">Register</a>
+    <button type="submit" mat-button form="register-form">Register</button>
   </mat-card-actions>
 </mat-card>

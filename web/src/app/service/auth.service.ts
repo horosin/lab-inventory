@@ -11,13 +11,13 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private email:string;
-  private token:string;
+  private email: string;
+  private token: string;
 
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  getLoggedIn() : boolean {
+  getLoggedIn(): boolean {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return Boolean(currentUser);
   }
