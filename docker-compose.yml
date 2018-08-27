@@ -17,3 +17,12 @@ services:
     restart: always
     ports:
       - 8099:8080
+
+  web:
+    build:
+      context: web
+    volumes:
+      - './web:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '4200:4200'
