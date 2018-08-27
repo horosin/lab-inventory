@@ -1,10 +1,10 @@
 package com.horosin.dawn.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -16,13 +16,18 @@ public class Sample {
     private String name;
     private String description;
 
+    @CreationTimestamp
+    protected Date created;
+
+
     public Sample() {
     }
 
-    public Sample(Integer id, String name, String description) {
+    public Sample(Integer id, String name, String description, Date created) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.created = created;
     }
 
     public Integer getId() {
@@ -47,5 +52,13 @@ public class Sample {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
 }

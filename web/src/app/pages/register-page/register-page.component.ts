@@ -11,7 +11,7 @@ import { first } from 'rxjs/operators';
 })
 export class RegisterPageComponent implements OnInit {
 
-  private registerForm: FormGroup;
+  public registerForm: FormGroup;
   private loading = false;
   private submitted = false;
 

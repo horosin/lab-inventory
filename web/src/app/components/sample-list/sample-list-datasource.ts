@@ -2,39 +2,28 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-
-// TODO: Replace this with your own data model type
-export interface SampleListItem {
-  id: number;
-  name: string;
-  description: string;
-  created: string;
-}
-
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: SampleListItem[] = [
-  {id: 1, name: 'Sample', description: 'Sample from training experiment', created: '2018-07-20'},
-  {id: 1, name: 'Sample', description: 'Sample from training experiment', created: '2018-07-20'},
-  {id: 1, name: 'Sample', description: 'Sample from training experiment', created: '2018-07-20'},
-  {id: 1, name: 'Sample', description: 'Sample from training experiment', created: '2018-07-20'},
-  {id: 1, name: 'Sample', description: 'Sample from training experiment', created: '2018-07-20'},
-  {id: 1, name: 'Sample', description: 'Sample from training experiment', created: '2018-07-20'},
-  {id: 1, name: 'Sample', description: 'Sample from training experiment', created: '2018-07-20'},
-  {id: 1, name: 'Sample', description: 'Sample from training experiment', created: '2018-07-20'},
-  {id: 1, name: 'Sample', description: 'Sample from training experiment', created: '2018-07-20'},
-  {id: 1, name: 'Sample', description: 'Sample from training experiment', created: '2018-07-20'},
-];
+import { SampleService } from '../../service/sample.service';
+import { Sample } from '../../models/sample';
 
 /**
  * Data source for the SampleList view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class SampleListDataSource extends DataSource<SampleListItem> {
-  data: SampleListItem[] = EXAMPLE_DATA;
+export class SampleListDataSource extends DataSource<Sample> {
+  data: Sample[] = [];
+  dataObservable: Observable<any>;
 
-  constructor(private paginator: MatPaginator, private sort: MatSort) {
+  constructor(
+    private sampleService: SampleService, 
+    private paginator: MatPaginator,
+    private sort: MatSort
+  ) {
     super();
+    this.dataObservable = this.sampleService.getAll().pipe(map(res => {
+      this.data = res;
+      this.paginator.length = this.data.length;
+    }))
   }
 
   /**
@@ -42,17 +31,15 @@ export class SampleListDataSource extends DataSource<SampleListItem> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<SampleListItem[]> {
+  connect(): Observable<Sample[]> {
+
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      observableOf(this.data),
+      this.dataObservable,
       this.paginator.page,
       this.sort.sortChange
-    ];
-
-    // Set the paginators length
-    this.paginator.length = this.data.length;
+    ];    
 
     return merge(...dataMutations).pipe(map(() => {
       return this.getPagedData(this.getSortedData([...this.data]));
@@ -69,7 +56,7 @@ export class SampleListDataSource extends DataSource<SampleListItem> {
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: SampleListItem[]) {
+  private getPagedData(data: Sample[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
   }
@@ -78,7 +65,7 @@ export class SampleListDataSource extends DataSource<SampleListItem> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: SampleListItem[]) {
+  private getSortedData(data: Sample[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
     }
