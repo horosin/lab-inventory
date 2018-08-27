@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()" id="sample-add-form">
+      <mat-form-field class="input-full-width">
+        <input matInput placeholder="sample name" formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field class="input-full-width">
+        <input matInput placeholder="password" formControlName="description">
+      </mat-form-field>
+    
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="submit" mat-button form="sample-add-form">Add</button>
+  </mat-card-actions>
+</mat-card>

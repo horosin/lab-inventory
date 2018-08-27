@@ -16,6 +16,7 @@ import { SampleListComponent } from './components/sample-list/sample-list.compon
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { SamplesAddPageComponent } from './pages/samples-add-page/samples-add-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     SamplesPageComponent,
     SampleListComponent,
     RegisterPageComponent,
-    DashboardPageComponent
+    DashboardPageComponent,
+    SamplesAddPageComponent
   ],
   imports: [
     BrowserModule,

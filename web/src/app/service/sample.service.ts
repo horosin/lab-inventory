@@ -19,8 +19,8 @@ export class SampleService {
       return this.http.get(`${environment.apiUrl}samples/` + id);
   }
 
-  register(sample: Sample) {
-      return this.http.post(`${environment.apiUrl}samples/add`, sample);
+  add(sample: Sample) {
+      return this.http.post(`${environment.apiUrl}samples/`, sample);
   }
 
   update(sample: Sample) {
