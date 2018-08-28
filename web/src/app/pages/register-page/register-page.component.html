@@ -16,8 +16,10 @@
         <input matInput placeholder="password" type="password" formControlName="password">
       </mat-form-field>
 
-      <mat-form-field *ngIf="false" class="input-full-width">
-        <input matInput placeholder="confirm password" type="password">
+      <mat-form-field class="input-full-width">
+        <input matInput placeholder="confirm password" type="password" formControlName="confirmPassword">
+        <mat-error 
+          *ngIf="registerForm.controls.confirmPassword.errors?.MatchPassword">Passwords dont't match</mat-error >
       </mat-form-field>
     
     </form>
