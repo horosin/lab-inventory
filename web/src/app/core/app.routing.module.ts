@@ -7,12 +7,14 @@ import { RegisterPageComponent } from '../pages/register-page/register-page.comp
 import { DashboardPageComponent } from '../pages/dashboard-page/dashboard-page.component'
 import { AuthGuard } from '../guards/auth.guard';
 import { SamplesAddPageComponent } from '../pages/samples-add-page/samples-add-page.component';
+import { UsersPageComponent } from '../pages/users-page/users-page.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginPageComponent },
     { path: 'register', component: RegisterPageComponent },
     { path: 'samples', component: SamplesPageComponent, canActivate: [AuthGuard] },
     { path: 'samples/add', component: SamplesAddPageComponent, canActivate: [AuthGuard] },
+    { path: 'users', component: UsersPageComponent, canActivate: [AuthGuard] },
     { path: '', component: DashboardPageComponent, canActivate: [AuthGuard] }
 ];
 
