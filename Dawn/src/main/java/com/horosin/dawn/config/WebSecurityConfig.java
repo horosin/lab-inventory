@@ -3,6 +3,7 @@ package com.horosin.dawn.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -54,10 +55,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable().authorizeRequests()
-                .antMatchers(new String[]{"/users/add"}).permitAll()
-                .anyRequest().authenticated()
-                .and()
+        http
+                .cors().and().csrf().disable()
+                .authorizeRequests()
+                    .antMatchers(new String[]{"/users/add"}).permitAll()
+                    .anyRequest().authenticated()
+                    .and()
                 .httpBasic()
                 .authenticationEntryPoint(authenticationEntryPoint);
     }
@@ -70,7 +73,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.applyPermitDefaultValues();
+        corsConfiguration.addAllowedMethod(HttpMethod.DELETE);
+
+        source.registerCorsConfiguration(
+                "/**",
+                corsConfiguration
+        );
         return source;
     }
 }

@@ -4,6 +4,7 @@ import com.horosin.dawn.model.Sample;
 import com.horosin.dawn.repository.SampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -49,6 +50,22 @@ public class SampleController {
 
     }
 
+    @DeleteMapping("/samples/{id}")
+    public String removeSample(@PathVariable("id") Integer sampleId) {
+
+        Optional<Sample> sample = sampleRepository.findById(sampleId);
+
+        if(sample.isPresent()) {
+
+            sampleRepository.delete(sample.get());
+
+            return "{\"success\":1}";
+        }
+
+        throw new IllegalArgumentException();
+
+    }
+
     @PostMapping("/samples/{id}")
     public Sample updateSample(
             @PathVariable("id") Integer sampleId,
@@ -66,10 +83,10 @@ public class SampleController {
     }
 
     // Exception handler for wrong requests
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST,
-            reason = "Requested id not found")
     @ExceptionHandler(IllegalArgumentException.class)
-    public void wrongIdHandler() {
-
+    protected ResponseEntity<Object> handleEntityNotFound(
+            Exception ex) {
+        String mess = ex.getMessage();
+        return new ResponseEntity<>(mess, HttpStatus.BAD_REQUEST);
     }
 }

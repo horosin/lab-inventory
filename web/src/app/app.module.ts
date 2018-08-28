@@ -12,7 +12,7 @@ import { AppRoutingModule } from "./core/app.routing.module";
 
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SamplesPageComponent } from './pages/samples-page/samples-page.component';
-import { SampleListComponent } from './components/sample-list/sample-list.component';
+import { SampleListComponent, SampleRemoveDialog } from './components/sample-list/sample-list.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
@@ -30,7 +30,11 @@ import { UsersPageComponent } from './pages/users-page/users-page.component';
     DashboardPageComponent,
     SamplesAddPageComponent,
     UsersPageComponent,
-    UsersListComponent
+    UsersListComponent,
+    SampleRemoveDialog
+  ],
+  entryComponents: [
+    SampleRemoveDialog,
   ],
   imports: [
     BrowserModule,

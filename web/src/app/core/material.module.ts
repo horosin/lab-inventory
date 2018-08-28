@@ -2,7 +2,7 @@ import {NgModule} from "@angular/core";
 
 import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule,
     MatTableModule, MatPaginatorModule, MatSortModule, MatGridListModule,
-    MatMenuModule, MatIconModule } from '@angular/material';
+    MatMenuModule, MatIconModule, MatDialogModule } from '@angular/material';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
@@ -21,7 +21,8 @@ import { LayoutModule } from '@angular/cdk/layout';
         MatGridListModule,
         MatMenuModule,
         MatIconModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatDialogModule
     ],
     exports: [
         MatToolbarModule,
@@ -35,7 +36,8 @@ import { LayoutModule } from '@angular/cdk/layout';
         MatGridListModule,
         MatMenuModule,
         MatIconModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatDialogModule
     ],
 })
 export class CustomMaterialModule { }
