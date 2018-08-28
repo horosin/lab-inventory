@@ -8,6 +8,7 @@ import { DashboardPageComponent } from '../pages/dashboard-page/dashboard-page.c
 import { AuthGuard } from '../guards/auth.guard';
 import { SamplesAddPageComponent } from '../pages/samples-add-page/samples-add-page.component';
 import { UsersPageComponent } from '../pages/users-page/users-page.component';
+import { UsersAddPageComponent } from '../pages/users-add-page/users-add-page.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginPageComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: 'samples', component: SamplesPageComponent, canActivate: [AuthGuard] },
     { path: 'samples/add', component: SamplesAddPageComponent, canActivate: [AuthGuard] },
     { path: 'users', component: UsersPageComponent, canActivate: [AuthGuard] },
+    { path: 'users/add', component: UsersAddPageComponent, canActivate: [AuthGuard] },
     { path: '', component: DashboardPageComponent, canActivate: [AuthGuard] }
 ];
 

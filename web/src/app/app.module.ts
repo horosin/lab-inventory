@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule }    from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CustomMaterialModule } from './core/material.module';
-import { AppRoutingModule } from "./core/app.routing.module";
+import { AppRoutingModule } from './core/app.routing.module';
 
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SamplesPageComponent } from './pages/samples-page/samples-page.component';
@@ -19,6 +19,7 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { SamplesAddPageComponent } from './pages/samples-add-page/samples-add-page.component';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
+import { UsersAddPageComponent } from './pages/users-add-page/users-add-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UsersPageComponent } from './pages/users-page/users-page.component';
     SamplesAddPageComponent,
     UsersPageComponent,
     UsersListComponent,
-    SampleRemoveDialog
+    SampleRemoveDialog,
+    UsersAddPageComponent
   ],
   entryComponents: [
     SampleRemoveDialog,
@@ -47,11 +49,11 @@ import { UsersPageComponent } from './pages/users-page/users-page.component';
     ReactiveFormsModule
   ],
   providers: [
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  }],
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
