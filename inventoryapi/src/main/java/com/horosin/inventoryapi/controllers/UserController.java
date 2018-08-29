@@ -3,11 +3,17 @@ package com.horosin.inventoryapi.controllers;
 import com.horosin.inventoryapi.model.User;
 import com.horosin.inventoryapi.repository.UserRepository;
 import com.horosin.inventoryapi.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -20,6 +26,15 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
+
+
+    @PostMapping("/login")
+    public Collection login(Authentication authentication){
+
+        return authentication.getAuthorities();
+    }
 
     @PostMapping("/users/add")
     @ResponseStatus(HttpStatus.CREATED)

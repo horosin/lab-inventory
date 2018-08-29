@@ -32,7 +32,7 @@ export class AuthService {
     }
     localStorage.setItem('currentUser', JSON.stringify(user));
 
-    return this.http.get(environment.apiUrl + "hello")
+    return this.http.post(environment.apiUrl + "login", {})
       .pipe(map(
         data => {
           console.log(data)
