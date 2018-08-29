@@ -1,17 +1,17 @@
-.dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-}
-
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
-
 .dashboard-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.metric {
+  margin: 0px 50px;
+}
+
+.metric .metric-number {
+  font-size: 4em;
+  text-align: center;
+}
+
+.metric .metric-desc {
   text-align: center;
 }
