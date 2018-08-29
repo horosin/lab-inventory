@@ -34,8 +34,9 @@ export class AuthService {
 
     return this.http.post(environment.apiUrl + "login", {})
       .pipe(map(
-        data => {
-          console.log(data)
+        (data: any[]) => {
+          const roles = data.map( element => element.authority )
+          localStorage.setItem('roles', JSON.stringify(roles));
         },
         err => {
           localStorage.removeItem('currentUser')

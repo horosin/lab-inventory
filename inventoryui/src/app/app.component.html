@@ -7,7 +7,7 @@
 
     <a mat-button routerLink="/">Dashboard</a>
     <a mat-button routerLink="/samples">Samples</a>
-    <a mat-button routerLink="/users">Users</a>
+    <a *ngIf="userHasRole('ADMIN')" mat-button routerLink="/users">Users</a>
     <a *ngIf="isLoggedIn()"mat-button (click)="logout()">Logout</a>
   </mat-toolbar-row>
 </mat-toolbar>
