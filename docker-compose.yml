@@ -20,9 +20,9 @@ services:
 
   web:
     build:
-      context: web
+      context: inventoryui
     volumes:
-      - './web:/usr/src/app'
+      - './inventoryui:/usr/src/app'
       - '/usr/src/app/node_modules'
     ports:
       - '4200:4200'
