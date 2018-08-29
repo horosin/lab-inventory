@@ -45,11 +45,27 @@ public class UserController {
 
         Optional<User> user = userRepository.findById(userId);
 
-        if(user.isPresent()) {
+        if (user.isPresent()) {
             return user.get();
         }
 
         throw new IllegalArgumentException();
+
+    }
+
+    @DeleteMapping("/users/{id}")
+    public String removeUser(@PathVariable("id") Long userId) {
+
+        Optional<User> user = userRepository.findById(userId);
+
+        if (user.isPresent()) {
+
+            userRepository.delete(user.get());
+
+            return "{\"success\":1}";
+        }
+
+        throw new IllegalArgumentException("User of given id does not exist.");
 
     }
 

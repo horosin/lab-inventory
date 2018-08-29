@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { MatPaginator, MatSort, MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
 import { SampleListDataSource } from './sample-list-datasource';
 import { SampleService } from '../../service/sample.service';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-sample-list',
@@ -30,7 +31,7 @@ export class SampleListComponent implements OnInit {
   }
 
   removeItem(id: number) {
-    const dialogRef = this.dialog.open(SampleRemoveDialog, {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '250px',
       data: {
         text: 'Are you sure?'
@@ -52,30 +53,4 @@ export class SampleListComponent implements OnInit {
 
     });
   }
-}
-
-
-@Component({
-  selector: 'app-samples-remove-dialog',
-  template: `
-    <h1 mat-dialog-title>Remove item</h1>
-    <div mat-dialog-content>
-      {{ data.text }}
-    </div>
-    <div mat-dialog-actions>
-      <button mat-button (click)="onNoClick()">No Thanks</button>
-      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
-    </div>
-  `,
-})
-export class SampleRemoveDialog {
-
-  constructor(
-    public dialogRef: MatDialogRef<SampleRemoveDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
 }

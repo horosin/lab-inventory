@@ -30,14 +30,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private MyBasicAuthenticationEntryPoint authenticationEntryPoint;
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user1").password(passwordEncoder().encode("user1Pass"))
-                .authorities("ROLE_USER");
-    }
-
-
-    @Autowired
     private DataSource dataSource;
 
     private String usersQuery = "select email, password, active from user where email=?";
@@ -57,12 +49,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .cors().and().csrf().disable()
-                .authorizeRequests()
-                    .antMatchers(new String[]{"/users/add"}).permitAll()
-                    .anyRequest().authenticated()
-                    .and()
                 .httpBasic()
-                .authenticationEntryPoint(authenticationEntryPoint);
+                .authenticationEntryPoint(authenticationEntryPoint).and()
+                .authorizeRequests()
+                    .antMatchers(new String[]{"/users/add", "/hello"}).permitAll()
+                    .anyRequest().authenticated();
+
     }
 
     @Bean
@@ -77,6 +69,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.applyPermitDefaultValues();
         corsConfiguration.addAllowedMethod(HttpMethod.DELETE);
+        corsConfiguration.addAllowedOrigin("localhost");
 
         source.registerCorsConfiguration(
                 "/**",

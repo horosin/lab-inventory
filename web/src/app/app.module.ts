@@ -12,7 +12,7 @@ import { AppRoutingModule } from './core/app.routing.module';
 
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SamplesPageComponent } from './pages/samples-page/samples-page.component';
-import { SampleListComponent, SampleRemoveDialog } from './components/sample-list/sample-list.component';
+import { SampleListComponent } from './components/sample-list/sample-list.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
@@ -20,6 +20,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { SamplesAddPageComponent } from './pages/samples-add-page/samples-add-page.component';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { UsersAddPageComponent } from './pages/users-add-page/users-add-page.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +33,11 @@ import { UsersAddPageComponent } from './pages/users-add-page/users-add-page.com
     SamplesAddPageComponent,
     UsersPageComponent,
     UsersListComponent,
-    SampleRemoveDialog,
-    UsersAddPageComponent
+    UsersAddPageComponent,
+    ConfirmDialogComponent
   ],
   entryComponents: [
-    SampleRemoveDialog,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
