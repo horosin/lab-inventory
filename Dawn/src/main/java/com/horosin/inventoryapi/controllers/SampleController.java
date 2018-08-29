@@ -1,7 +1,7 @@
-package com.horosin.dawn.controllers;
+package com.horosin.inventoryapi.controllers;
 
-import com.horosin.dawn.model.Sample;
-import com.horosin.dawn.repository.SampleRepository;
+import com.horosin.inventoryapi.model.Sample;
+import com.horosin.inventoryapi.repository.SampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

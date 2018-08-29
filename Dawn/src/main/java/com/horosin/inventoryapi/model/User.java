@@ -1,9 +1,8 @@
-package com.horosin.dawn.model;
+package com.horosin.inventoryapi.model;
 
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,13 +1,13 @@
-package com.horosin.dawn.service;
+package com.horosin.inventoryapi.service;
 
 
 import java.util.Arrays;
 import java.util.HashSet;
 
-import com.horosin.dawn.model.Role;
-import com.horosin.dawn.model.User;
-import com.horosin.dawn.repository.RoleRepository;
-import com.horosin.dawn.repository.UserRepository;
+import com.horosin.inventoryapi.model.Role;
+import com.horosin.inventoryapi.model.User;
+import com.horosin.inventoryapi.repository.RoleRepository;
+import com.horosin.inventoryapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
-package com.horosin.dawn.repository;
+package com.horosin.inventoryapi.repository;
 
-import com.horosin.dawn.model.Role;
+import com.horosin.inventoryapi.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

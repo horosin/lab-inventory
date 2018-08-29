@@ -1,7 +1,7 @@
-package com.horosin.dawn.repository;
+package com.horosin.inventoryapi.repository;
 
 
-import com.horosin.dawn.model.Sample;
+import com.horosin.inventoryapi.model.Sample;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

@@ -1,7 +1,7 @@
-package com.horosin.dawn.service;
+package com.horosin.inventoryapi.service;
 
 
-import com.horosin.dawn.model.User;
+import com.horosin.inventoryapi.model.User;
 
 public interface UserService {
     public User findUserByEmail(String email);

@@ -1,4 +1,4 @@
-package com.horosin.dawn.model;
+package com.horosin.inventoryapi.model;
 
 
 import org.hibernate.annotations.CreationTimestamp;

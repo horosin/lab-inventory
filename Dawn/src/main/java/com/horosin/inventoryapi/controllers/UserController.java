@@ -1,8 +1,8 @@
-package com.horosin.dawn.controllers;
+package com.horosin.inventoryapi.controllers;
 
-import com.horosin.dawn.model.User;
-import com.horosin.dawn.repository.UserRepository;
-import com.horosin.dawn.service.UserService;
+import com.horosin.inventoryapi.model.User;
+import com.horosin.inventoryapi.repository.UserRepository;
+import com.horosin.inventoryapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

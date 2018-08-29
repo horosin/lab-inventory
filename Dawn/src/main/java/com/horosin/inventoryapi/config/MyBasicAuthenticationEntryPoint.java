@@ -1,4 +1,4 @@
-package com.horosin.dawn.config;
+package com.horosin.inventoryapi.config;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
@@ -24,7 +24,7 @@ public class MyBasicAuthenticationEntryPoint extends BasicAuthenticationEntryPoi
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        setRealmName("dawn");
+        setRealmName("inventoryapi");
         super.afterPropertiesSet();
     }
 
