@@ -25,5 +25,13 @@ services:
       - './inventoryui:/usr/src/app'
       - '/usr/src/app/node_modules'
     ports:
-      - '4200:4200'
+      - '80:4200'
     command: ng serve --host 0.0.0.0 --disable-host-check
+
+  api:
+    build:
+      context: inventoryapi
+    links:
+      - db
+    ports:
+      - '8080:8080'
