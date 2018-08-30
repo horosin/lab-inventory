@@ -1,8 +1,12 @@
-FROM openjdk:8-jdk-alpine
+FROM gradle:jdk8
 
-RUN mkdir /app
-WORKDIR /app
+USER root
 
-ADD . /app
+RUN mkdir /home/gradle/project
+WORKDIR /home/gradle/project
 
-CMD ./gradlew build && java -jar build/libs/gs-rest-service-0.1.0.jar
+ADD . /home/gradle/project
+
+RUN  gradle wrapper && ./gradlew build 
+
+CMD java -jar build/libs/gs-rest-service-0.1.0.jar
