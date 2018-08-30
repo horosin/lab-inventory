@@ -1,26 +1,24 @@
 # Use root/example as user/password credentials
-version: '2.3
+version: '2.3'
 
 services:
 
   db:
     image: mysql
-    command: --default-authentication-plugin=mysql_native_password --innodb-buffer-pool-size=256M
-    restart: always
+    command: --default-authentication-plugin=mysql_native_password --performance-schema=OFF 
     environment:
       - MYSQL_ROOT_PASSWORD=example
     ports:
       - 3306:3306
-    mem_limit: 100M
-    cpu_percent: 10
+    mem_limit: 200M
+    cpu_percent: 30
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8099:8080
-    mem_limit: 100M
-    cpu_percent: 10
+  # adminer:
+  #   image: adminer
+  #   ports:
+  #     - 8099:8080
+  #   mem_limit: 100M
+  #   cpu_percent: 10
 
   web:
     build:
@@ -31,7 +29,7 @@ services:
     ports:
       - '80:4200'
     command: ng serve --host 0.0.0.0 --disable-host-check
-    mem_limit: 100M
+    mem_limit: 400M
     cpu_percent: 30
 
   api:
@@ -41,5 +39,5 @@ services:
       - db
     ports:
       - '8080:8080'
-    mem_limit: 100M
+    mem_limit: 400M
     cpu_percent: 30
