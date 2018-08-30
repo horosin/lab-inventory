@@ -4,6 +4,7 @@ services:
 
   db:
     image: mysql
+    restart: always
     command: --default-authentication-plugin=mysql_native_password --performance-schema=OFF 
     environment:
       - MYSQL_ROOT_PASSWORD=example
@@ -16,6 +17,7 @@ services:
     build:
       context: inventoryui
       dockerfile: Dockerfile.prod
+    restart: always
     volumes:
       - './inventoryui:/usr/src/app'
       - '/usr/src/app/node_modules'
@@ -28,6 +30,7 @@ services:
   api:
     build:
       context: inventoryapi
+    restart: always
     links:
       - db
     ports:
