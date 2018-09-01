@@ -18,6 +18,10 @@ public class DashboardController {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     *
+     * @return
+     */
     @GetMapping("/stats")
     public String getStats() {
 

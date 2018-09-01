@@ -31,12 +31,21 @@ public class SampleController {
         return sample;
     }
 
+    /**
+     *
+     * @return
+     */
     @GetMapping("/samples")
     public Iterable<Sample> getAllSamples() {
         return sampleRepository.findAll();
 
     }
 
+    /**
+     * 
+     * @param sampleId
+     * @return
+     */
     @GetMapping("/samples/{id}")
     public Sample getSample(@PathVariable("id") Integer sampleId) {
 

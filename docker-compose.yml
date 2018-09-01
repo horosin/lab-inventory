@@ -23,7 +23,7 @@ services:
       - './inventoryui:/usr/src/app'
       - '/usr/src/app/node_modules'
     ports:
-      - '80:4200'
+      - '4200:4200'
     command: ng serve --host 0.0.0.0 --disable-host-check
 
   api:

@@ -2,6 +2,7 @@
 
 .gradle/
 .idea/
+javadoc/
 
 # Compiled class file
 *.class
